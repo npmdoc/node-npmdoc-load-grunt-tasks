@@ -3,7 +3,7 @@
 
 [![NPM](https://nodei.co/npm/load-grunt-tasks.png?downloads=true)](https://www.npmjs.com/package/load-grunt-tasks)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-load-grunt-tasks/build/screenCapture.buildNpmdoc.browser.%2Fhome%2Ftravis%2Fbuild%2Fnpmdoc%2Fnode-npmdoc-load-grunt-tasks%2Ftmp%2Fbuild%2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-load-grunt-tasks/build/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-load-grunt-tasks/build/screenCapture.buildNpmdoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-load-grunt-tasks%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-load-grunt-tasks/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-load-grunt-tasks/build/screenCapture.npmPackageListing.svg)
 
