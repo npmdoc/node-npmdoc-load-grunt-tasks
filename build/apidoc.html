@@ -61,12 +61,87 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.load-grunt-tasks">module load-grunt-tasks</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.load-grunt-tasks.load-grunt-tasks">
+            function <span class="apidocSignatureSpan"></span>load-grunt-tasks
+            <span class="apidocSignatureSpan">(grunt, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.load-grunt-tasks.toString">
+            function <span class="apidocSignatureSpan">load-grunt-tasks.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.load-grunt-tasks" id="apidoc.module.load-grunt-tasks">module load-grunt-tasks</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.load-grunt-tasks.load-grunt-tasks" id="apidoc.element.load-grunt-tasks.load-grunt-tasks">
+        function <span class="apidocSignatureSpan"></span>load-grunt-tasks
+        <span class="apidocSignatureSpan">(grunt, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">load-grunt-tasks = function (grunt, opts) {
+	opts = opts || {};
+
+	var pattern = arrify(opts.pattern || [&#x27;grunt-*&#x27;, &#x27;@*/grunt-*&#x27;]);
+	var config = opts.config || pkgUp.sync();
+	var scope = arrify(opts.scope || [&#x27;dependencies&#x27;, &#x27;devDependencies&#x27;, &#x27;peerDependencies&#x27;, &#x27;optionalDependencies&#x27;]);
+
+	if (typeof config === &#x27;string&#x27;) {
+		config = require(path.resolve(config));
+	}
+
+	pattern.push(&#x27;!grunt&#x27;, &#x27;!grunt-cli&#x27;);
+
+	var names = scope.reduce(function (result, prop) {
+		var deps = config[prop] || [];
+		return result.concat(Array.isArray(deps) ? deps : Object.keys(deps));
+	}, []);
+
+	multimatch(names, pattern).forEach(function (pkgName) {
+		if (opts.requireResolution === true) {
+			try {
+				grunt.loadTasks(resolvePkg(path.join(pkgName, &#x27;tasks&#x27;)));
+			} catch (err) {
+				grunt.log.error(&#x27;npm package &#x22;&#x27; + pkgName + &#x27;&#x22; not found. Is it installed?&#x27;);
+			}
+		} else {
+			grunt.loadNpmTasks(pkgName);
+		}
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.load-grunt-tasks.toString" id="apidoc.element.load-grunt-tasks.toString">
+        function <span class="apidocSignatureSpan">load-grunt-tasks.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 

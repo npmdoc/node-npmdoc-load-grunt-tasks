@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/sindresorhus/load-grunt-tasks#readme"
-
-    >load-grunt-tasks (v3.5.2)</a>
+    <a href="https://github.com/sindresorhus/load-grunt-tasks#readme">load-grunt-tasks (v3.5.2)</a>
 </h1>
 <h4>Load multiple grunt tasks using globbing patterns</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.load-grunt-tasks">module load-grunt-tasks</a><ol>
 
@@ -97,15 +90,15 @@
     <li>description and source-code<pre class="apidocCodePre">load-grunt-tasks = function (grunt, opts) {
 	opts = opts || {};
 
-	var pattern = arrify(opts.pattern || [&#x27;grunt-*&#x27;, &#x27;@*/grunt-*&#x27;]);
+	var pattern = arrify(opts.pattern || ['grunt-*', '@*/grunt-*']);
 	var config = opts.config || pkgUp.sync();
-	var scope = arrify(opts.scope || [&#x27;dependencies&#x27;, &#x27;devDependencies&#x27;, &#x27;peerDependencies&#x27;, &#x27;optionalDependencies&#x27;]);
+	var scope = arrify(opts.scope || ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies']);
 
-	if (typeof config === &#x27;string&#x27;) {
+	if (typeof config === 'string') {
 		config = require(path.resolve(config));
 	}
 
-	pattern.push(&#x27;!grunt&#x27;, &#x27;!grunt-cli&#x27;);
+	pattern.push('!grunt', '!grunt-cli');
 
 	var names = scope.reduce(function (result, prop) {
 		var deps = config[prop] || [];
@@ -115,9 +108,9 @@
 	multimatch(names, pattern).forEach(function (pkgName) {
 		if (opts.requireResolution === true) {
 			try {
-				grunt.loadTasks(resolvePkg(path.join(pkgName, &#x27;tasks&#x27;)));
+				grunt.loadTasks(resolvePkg(path.join(pkgName, 'tasks')));
 			} catch (err) {
-				grunt.log.error(&#x27;npm package &#x22;&#x27; + pkgName + &#x27;&#x22; not found. Is it installed?&#x27;);
+				grunt.log.error('npm package "' + pkgName + '" not found. Is it installed?');
 			}
 		} else {
 			grunt.loadNpmTasks(pkgName);
@@ -151,3 +144,4 @@
     ]
 </div>
 </div>
+</body></html>
